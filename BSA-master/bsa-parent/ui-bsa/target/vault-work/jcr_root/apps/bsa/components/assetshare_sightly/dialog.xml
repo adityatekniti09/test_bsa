@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Dialog"
+    activeTab="0"
+    xtype="tabpanel">
+    <items jcr:primaryType="cq:WidgetCollection">
+        <tab0
+            jcr:primaryType="nt:unstructured"
+            title="General"
+            xtype="panel">
+            <items jcr:primaryType="cq:WidgetCollection">
+                <limit
+                    jcr:primaryType="cq:Widget"
+                    fieldLabel="Number Of Results"
+                    fieldSubLabel="Per Page"
+                    name="./limit"
+                    type="combobox"
+                    vtype="digits"
+                    xtype="selection">
+                    <options jcr:primaryType="cq:WidgetCollection">
+                        <o0
+                            jcr:primaryType="nt:unstructured"
+                            value="12"/>
+                        <o1
+                            jcr:primaryType="nt:unstructured"
+                            value="24"/>
+                        <o2
+                            jcr:primaryType="nt:unstructured"
+                            value="48"/>
+                        <o3
+                            jcr:primaryType="nt:unstructured"
+                            value="96"/>
+                    </options>
+                </limit>
+                <path
+                        jcr:primaryType="cq:Widget"
+                        fieldDescription="Search will be run within the specified paths. This will be overwritten if a path predicate is set."
+                        fieldLabel="Paths"
+                        name="./path"
+                        xtype="multifield">
+                    <fieldConfig
+                            jcr:primaryType="nt:unstructured"
+                            rootPath="/content/dam"
+                            xtype="pathfield"/>
+                </path>
+                <results
+                        jcr:primaryType="cq:Widget"
+                        emptyText_noI18n="Results"
+                        fieldDescription="Sample usage: 24 &lt;b>Results&lt;/b>"
+                        fieldLabel="Results Text"
+                        name="./textResults"
+                        xtype="textfield"/>
+                <page
+                        jcr:primaryType="cq:Widget"
+                        emptyText_noI18n="Page"
+                        fieldDescription="Sample usage: &lt;b>Page&lt;/b> 2 of 4"
+                        fieldLabel="Page Text"
+                        name="./textPage"
+                        xtype="textfield"/>
+                <of
+                        jcr:primaryType="cq:Widget"
+                        emptyText_noI18n="of"
+                        fieldDescription="Sample usage: Page 2 &lt;b>of&lt;/b> 4"
+                        fieldLabel="Of Text"
+                        name="./textOf"
+                        xtype="textfield"/>
+            </items>
+        </tab0>
+    </items>
+</jcr:root>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Dialog"
+    height="400"
+    title="Footer"
+    width="850"
+    xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <footer
+                jcr:primaryType="cq:Panel"
+                title="Footer">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <tradeMark
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="false"
+                        fieldLabel="TradeMark Copy"
+                        name="./tradeMark"
+                        xtype="textfield"/>
+                    <copyrightCopy
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="false"
+                        fieldLabel="Copyright Copy"
+                        name="./copyrightCopy"
+                        xtype="textfield"/>
+                    <privacyCopy
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="false"
+                        fieldLabel="Privacy Copy"
+                        name="./privacyCopy"
+                        xtype="textfield"/>
+                    <privacyUrl
+                            jcr:primaryType="cq:Widget"
+                            allowBlank="false"
+                            fieldLabel="Privacy Url"
+                            name="./privacyUrl"
+                            xtype="textfield"/>
+                    <termsCopy
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="false"
+                        fieldLabel="Terms Copy"
+                        name="./termsCopy"
+                        xtype="textfield"/>
+                    <termsUrl
+                            jcr:primaryType="cq:Widget"
+                            allowBlank="false"
+                            fieldLabel="Terms Url"
+                            name="./termsUrl"
+                            xtype="textfield"/>
+                </items>
+            </footer>
+        </items>
+    </items>
+</jcr:root>

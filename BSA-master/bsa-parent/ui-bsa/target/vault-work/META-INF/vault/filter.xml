@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/apps/bsa">
+        <exclude pattern="/apps/bsa/install(/.*)?"/>
+        <exclude pattern="/apps/bsa/runmodes(/.*)?"/>
+    </filter>
+       <filter root="/content/bsa">
+    </filter>
+    <filter root="/etc/designs/bsa"/>
+    <filter root="/apps/sling"/>
+    <filter root="/content/bsa"  />
+</workspaceFilter>

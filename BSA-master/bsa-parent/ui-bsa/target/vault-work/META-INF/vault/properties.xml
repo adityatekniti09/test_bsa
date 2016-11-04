@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>com.bsa.dam - ui-bsa</comment>
+<entry key="createdBy">Aditya</entry>
+<entry key="name">ui-bsa</entry>
+<entry key="created">2016-10-30T17:01:46.785-0500</entry>
+<entry key="groupId">com.bsa.dam</entry>
+<entry key="version">1.0.0-SNAPSHOT</entry>
+<entry key="requiresRoot">false</entry>
+<entry key="group">com.bsa.dam</entry>
+<entry key="description">This is the UI module</entry>
+<entry key="artifactId">ui-bsa</entry>
+<entry key="path">/etc/packages/com.bsa.dam/ui-bsa.zip</entry>
+</properties>

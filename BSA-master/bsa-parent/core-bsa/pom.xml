@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd ">
+	<modelVersion>4.0.0</modelVersion>
+	<!-- ====================================================================== -->
+	<!-- P A R E N T P R O J E C T D E S C R I P T I O N -->
+	<!-- ====================================================================== -->
+	<parent>
+		<groupId>com.bsa.dam</groupId>
+		<artifactId>bsa-dam</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+
+
+	<!-- ====================================================================== -->
+	<!-- P R O J E C T D E S C R I P T I O N -->
+	<!-- ====================================================================== -->
+
+	<artifactId>core-bsa</artifactId>
+	<packaging>bundle</packaging>
+	<name>${project.groupId} - ${project.artifactId}</name>
+	<description>This is a core module</description>
+	<url>http://website.bsa.com/taglibs/${project.artifactId}</url>
+
+	<properties>
+		<osgicoreVersion>4.2.0</osgicoreVersion>
+		<cqi18nVersion>5.4.2</cqi18nVersion>
+		<gsonVersion>1.7.1</gsonVersion>
+		<jackson.version>2.5.4</jackson.version>
+		
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.compendium</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.osgi</groupId>
+			<artifactId>org.osgi.core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.felix</groupId>
+			<artifactId>org.apache.felix.scr.annotations</artifactId>
+		</dependency>
+
+		
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.7.5</version>
+			<scope>provided</scope>
+		</dependency>
+		<!-- <dependency> <groupId>junit</groupId> <artifactId>junit</artifactId> 
+			</dependency> -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+			<optional>false</optional>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>javax.jcr</groupId>
+			<artifactId>jcr</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.sling</groupId>
+			<artifactId>org.apache.sling.jcr.api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<!-- additional deps -->
+		<dependency>
+	         <groupId>org.apache.sling</groupId>
+	         <artifactId>org.apache.sling.commons.json</artifactId>
+	         <version>2.0.6</version>
+	         <scope>provided</scope>
+        </dependency>
+        
+        <!--  cq dependancy -->
+        <dependency>
+	         <groupId>com.day.cq.dam</groupId>
+	         <artifactId>cq-dam-commons</artifactId>
+	         <version>5.8.2</version>
+	         <scope>provided</scope>
+        </dependency>
+		
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>${jackson.version}</version>
+			<scope>compile</scope>
+
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>${jackson.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.version}</version>
+			<scope>compile</scope>
+		</dependency>
+		
+
+		<dependency>
+			<groupId>com.google.collections</groupId>
+			<artifactId>google-collections</artifactId>
+			<version>1.0-rc1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.5</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpcore</artifactId>
+			<version>4.4.1</version>
+		</dependency>
+	
+		<dependency>
+			<groupId>com.day.commons.osgi.wrapper</groupId>
+			<artifactId>com.day.commons.osgi.wrapper.commons-lang2</artifactId>
+			<version>2.5-0001</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.day.commons.osgi.wrapper</groupId>
+			<artifactId>com.day.commons.osgi.wrapper.commons-email</artifactId>
+			<version>1.2.0-0002</version>
+			<scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.5.0-b01</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>2.7</version>
+			<scope>compile</scope>
+		</dependency>
+		
+		 <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <type>jar</type>
+            <scope>test</scope>
+            <optional>true</optional>
+        </dependency>
+		
+		<!--  newly added dependencies -->
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.9.13</version>
+		</dependency>
+
+		<!--Adobe dependencies -->
+		<dependency>
+			<groupId>com.adobe.aem</groupId>
+			<artifactId>uber-jar</artifactId>
+			<scope>provided</scope>
+			<classifier>obfuscated-apis</classifier>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.apache.jackrabbit</groupId>
+		    <artifactId>jackrabbit-jcr-commons</artifactId>
+		    <version>2.10.1</version>
+		    <scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.apache.jackrabbit</groupId>
+		    <artifactId>jackrabbit-jcr2dav</artifactId>
+		    <version>2.10.1</version>
+		    <scope>provided</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>commons-net</groupId>
+			<artifactId>commons-net</artifactId>
+			<version>2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.jcraft</groupId>
+			<artifactId>jsch</artifactId>
+			<version>0.1.53</version>
+		</dependency>
+		
+	</dependencies>
+
+
+	<!-- ====================================================================== -->
+	<!-- B U I L D D E F I N I T I O N -->
+	<!-- ====================================================================== -->
+	<build>
+		<resources>
+			<resource>
+				<targetPath>META-INF</targetPath>
+				<directory>META-INF/resources</directory>
+			</resource>
+		</resources>
+		<plugins>
+		<plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.1</version>
+            <configuration>
+                <source>1.7</source>
+                <target>1.7</target>
+            </configuration>
+        </plugin>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-scr-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>generate-scr-descriptor</id>
+						<goals>
+							<goal>scr</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.felix</groupId>
+				<artifactId>maven-bundle-plugin</artifactId>
+				<extensions>true</extensions>
+				<configuration>
+					<instructions>
+						<Bundle-SymbolicName>com.bsa.core-bsa</Bundle-SymbolicName>
+
+						<!-- adding -->
+						<instructions>
+							<Embed-Dependency>*;scope=compile|runtime</Embed-Dependency>
+							<Embed-Directory>OSGI-INF/lib</Embed-Directory>
+							<Embed-Transitive>true</Embed-Transitive>
+							
+							<Export-Package>
+								com.bsa.*
+							</Export-Package>
+							<Sling-Bundle-Resources>
+								/META-INF/resources
+							</Sling-Bundle-Resources>
+							<Sling-Bundle-Resources>
+								/META-INF/lib
+							</Sling-Bundle-Resources>
+						</instructions>
+
+						<!-- done -->
+					</instructions>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.sling</groupId>
+				<artifactId>maven-sling-plugin</artifactId>
+				<configuration>
+					<slingUrl>http://${crx.host}:${crx.port}/apps/bsa/install</slingUrl>
+					<usePut>true</usePut>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<configuration>
+					<excludePackageNames>
+						*.impl
+					</excludePackageNames>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<profiles>
+		<profile>
+			<id>auto-deploy</id>
+			<build>
+				<plugins>
+					<!-- Use the sling plugin to automatically deploy the bundle to the 
+						JCR tree -->
+					<plugin>
+						<groupId>org.apache.sling</groupId>
+						<artifactId>maven-sling-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>install-bundle</id>
+								<goals>
+									<goal>install</goal>
+								</goals>
+								<configuration>
+									<slingUrl>http://${cq.host}:${cq.port}</slingUrl>
+									<slingUrlSuffix>/apps/bsa/install</slingUrlSuffix>
+									<user>${cq.user}</user>
+									<password>${cq.password}</password>
+									<usePut>true</usePut>
+									<failOnError>true</failOnError>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+</project>

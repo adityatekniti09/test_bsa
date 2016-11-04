@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.bsa.dam</groupId>
+        <artifactId>bsa-dam</artifactId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>combined-bsa</artifactId>
+    <packaging>content-package</packaging>
+
+    <name>${project.groupId} - ${project.artifactId}</name>
+
+    <description>
+        Builds a CQ package containing all components of the bsa project. Useful for making formal
+        releases to QA and production environments for example.
+    </description>
+
+   <properties>
+        <maven.test.skip>true</maven.test.skip>
+        <core.name>core-bsa</core.name>
+        <ui.name>ui-bsa</ui.name>
+        <config.name>config-bsa</config.name>
+		<install.dir>
+			${project.build.directory}/classes/jcr_root/apps/bsa/install
+		</install.dir>
+    </properties>  
+
+    <dependencies>
+         <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>config-bsa</artifactId>
+            <version>${project.version}</version>
+            <type>content-package</type>
+        </dependency>
+
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>ui-bsa</artifactId>
+            <version>${project.version}</version>
+            <type>content-package</type>
+        </dependency> 
+	
+        <dependency>
+			<groupId>${project.groupId}</groupId>
+			<artifactId>core-bsa</artifactId>
+			<version>${project.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		
+			 </dependencies>
+		 
+		 
+		 <build>
+        <plugins>
+			
+            <plugin>
+                <groupId>com.day.jcr.vault</groupId>
+                <artifactId>content-package-maven-plugin</artifactId>
+                <extensions>true</extensions>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>package</goal>
+                        </goals>
+                        <configuration>
+                            <embeddedTarget>/apps/bsa/install</embeddedTarget>
+                            <embeddeds>
+                             
+								<embedded>
+                                    <groupId>${project.groupId}</groupId>
+                                    <artifactId>core-bsa</artifactId>
+                                    <!-- <filter>true</filter> -->
+                                </embedded>
+								
+										
+                            </embeddeds>
+                            <subPackages>
+                            	<subPackage>
+                                    <groupId>${project.groupId}</groupId>
+                                    <artifactId>config-bsa</artifactId>
+                                    <!-- <filter>true</filter> -->
+                                </subPackage>
+                                  <subPackage>
+                                    <groupId>${project.groupId}</groupId>
+                                    <artifactId>ui-bsa</artifactId>
+                                    <!-- <filter>true</filter> -->
+                                </subPackage>
+                            </subPackages> 
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+        <pluginManagement>
+        	<plugins>
+        		<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+        		<plugin>
+        			<groupId>org.eclipse.m2e</groupId>
+        			<artifactId>lifecycle-mapping</artifactId>
+        			<version>1.0.0</version>
+        			<configuration>
+        				<lifecycleMappingMetadata>
+        					<pluginExecutions>
+        						<pluginExecution>
+        							<pluginExecutionFilter>
+        								<groupId>
+        									org.apache.maven.plugins
+        								</groupId>
+        								<artifactId>
+        									maven-compiler-plugin
+        								</artifactId>
+        								
+        								<versionRange>
+        									[3.1,)
+        								</versionRange>
+        								<goals>
+        									<goal>compile</goal>
+        								</goals>
+        							</pluginExecutionFilter>
+        							<action>
+        								<ignore></ignore>
+        							</action>
+        						</pluginExecution>
+        					</pluginExecutions>
+        				</lifecycleMappingMetadata>
+        			</configuration>
+        		</plugin>
+        	</plugins>
+        </pluginManagement>
+		 </build>
+	
+	
+	
+		 
+
+	
+
+    <profiles>
+    
+    
+    	<profile>
+			<id>local-author</id>
+			<activation>
+				<property>
+					<name>local-author</name>
+				</property>
+			</activation>
+			<properties>
+				<sling.host>${crx.host}</sling.host>
+				<sling.port>${crx.port}</sling.port>
+				<sling.user>${crx.username}</sling.user>
+				<sling.password>${crx.password}</sling.password>
+				<exec.flush.dispatcher.cache.skip>true</exec.flush.dispatcher.cache.skip>
+			</properties>
+			<build>
+                <plugins>
+                	
+                	<!-- copy the dependant bundles -->
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-dependency-plugin</artifactId>
+						<!-- <version>2.0</version> -->
+						<executions>
+							<execution>
+								<id>install</id>
+								<goals>
+									<goal>copy</goal>
+								</goals>
+								<configuration>
+									<!-- <includeArtifactIds>${include.artifact.ids}</includeArtifactIds>
+									<outputDirectory>${install.dir}</outputDirectory> -->
+									<artifactItems>
+										<artifactItem>
+											<groupId>${project.groupId}</groupId>
+											<artifactId>${core.name}</artifactId>
+											<version>${project.version}</version>
+											<outputDirectory>
+												${install.dir}
+											</outputDirectory>
+										</artifactItem>
+										
+									
+									</artifactItems>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+					
+                    <plugin>
+                        <groupId>com.day.jcr.vault</groupId>
+                        <artifactId>content-package-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>install-content-package</id>
+                                <phase>install</phase>
+                                <goals>
+                                    <goal>install</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+		</profile>
+		
+		
+		
+        <profile>
+            <id>auto-deploy</id>
+            <!--
+                when activated, this profile will deploy and install the built CQ package to the target server.
+            -->
+           <!-- <activation>
+      <activeByDefault>true</activeByDefault>
+    </activation>-->
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.day.jcr.vault</groupId>
+                        <artifactId>maven-vault-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>install-package</id>
+                                <goals>
+                                    <goal>install</goal>
+                                </goals>
+                                <configuration>
+                                    <packageFile>${project.build.directory}/${project.build.finalName}.zip</packageFile>
+                                    <targetURL>http://${cq.host}:${cq.port}/crx/packmgr/service.jsp</targetURL>
+                                    <userId>${cq.user}</userId>
+                                    <password>${cq.password}</password>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+              <profile>
+            <id>dummy</id>
+        </profile>
+    </profiles>
+
+</project>

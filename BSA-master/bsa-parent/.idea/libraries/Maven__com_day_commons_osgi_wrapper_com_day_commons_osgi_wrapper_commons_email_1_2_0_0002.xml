@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.day.commons.osgi.wrapper:com.day.commons.osgi.wrapper.commons-email:1.2.0-0002">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/day/commons/osgi/wrapper/com.day.commons.osgi.wrapper.commons-email/1.2.0-0002/com.day.commons.osgi.wrapper.commons-email-1.2.0-0002.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/day/commons/osgi/wrapper/com.day.commons.osgi.wrapper.commons-email/1.2.0-0002/com.day.commons.osgi.wrapper.commons-email-1.2.0-0002-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/day/commons/osgi/wrapper/com.day.commons.osgi.wrapper.commons-email/1.2.0-0002/com.day.commons.osgi.wrapper.commons-email-1.2.0-0002-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/bsa-dam.iml" filepath="$PROJECT_DIR$/bsa-dam.iml" />
+      <module fileurl="file://$PROJECT_DIR$/combined-bsa/combined-bsa.iml" filepath="$PROJECT_DIR$/combined-bsa/combined-bsa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/config-bsa/config-bsa.iml" filepath="$PROJECT_DIR$/config-bsa/config-bsa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/core-bsa/core-bsa.iml" filepath="$PROJECT_DIR$/core-bsa/core-bsa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ui-bsa/ui-bsa.iml" filepath="$PROJECT_DIR$/ui-bsa/ui-bsa.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,45 @@
+
+
+<div ng-controller="assetShareController" ng-cloak>
+	<div style="">
+		<input type="hidden" ng-model="data.resultsPerPage" ng-init="data.resultsPerPage= ${properties.limit}"/>
+		<!--<input type="hidden" ng-model="data.folderPath" ng-init="data.folderPath= ${properties.path}"/>-->
+	</div>
+	<div class="container " style="margin-top: 15px">
+		<div class="row">
+			<div class="col-xs-4 col-md-4 col-sd-4">
+				<input class="form-control" ng-model="data.searchText" id="ex3"
+					   type="text">
+			</div>
+			<button class="col-xs-1 col-md-1 col-sd-1" ng-click="searchButton()">
+				<i class="fa fa-search fa-2x" aria-hidden="true"></i>
+			</button>
+			<div class="col-xs-3"> {{data.offset+1}} - {{data.offset + data.hitsPerPage}} of {{data.totalMatches}} results</div>
+		</div>
+	</div>
+	<div class="container">
+		<ul class="pager">
+			<li class="previous"><a ng-click="previousButton()" style="cursor:pointer">Previous</a></li>
+			<li class="next"><a ng-click="nextButton()" style="cursor:pointer">Next</a></li>
+		</ul>
+	</div>
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6 col-md-3 gridImg-details" ng-repeat="assetObject in data.assetObjects">
+				<div class="spotlights">
+					<div class="thumbnail">
+						<img ng-src="{{assetObject.downloadPath}}"
+							 alt="{{assetObject.title}}">
+					</div>
+					<div class="caption">
+						<h3 style="text-align:center">{{assetObject.title}}</h3>
+						<p>
+							<a ng-href="{{assetObject.downloadPath}}" role="button" ><span style="text-align:center" >Download</span> </a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<div ng-init="searchOnLoad()"></div>
+</div>

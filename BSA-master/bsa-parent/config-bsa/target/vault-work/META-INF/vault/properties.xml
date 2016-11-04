@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>com.bsa.dam - config-bsa</comment>
+<entry key="createdBy">admin</entry>
+<entry key="name">config-bsa</entry>
+<entry key="created">2016-10-22T15:09:20.219+0530</entry>
+<entry key="groupId">com.bsa.dam</entry>
+<entry key="version">1.0.0-SNAPSHOT</entry>
+<entry key="requiresRoot">false</entry>
+<entry key="group">com.bsa.dam</entry>
+<entry key="description">A CQ package that contains all configuration information for the Boy Scouts of America Asset Share project.</entry>
+<entry key="artifactId">config-bsa</entry>
+<entry key="path">/etc/packages/com.bsa.dam/config-bsa.zip</entry>
+</properties>
