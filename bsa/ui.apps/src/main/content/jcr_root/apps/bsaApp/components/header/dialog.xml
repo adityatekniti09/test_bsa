@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0"
+    jcr:primaryType="cq:Dialog"
+    height="400"
+    title="Header"
+    width="850"
+    xtype="dialog">
+    <items
+        jcr:primaryType="cq:Widget"
+        xtype="tabpanel">
+        <items jcr:primaryType="cq:WidgetCollection">
+            <header
+                jcr:primaryType="cq:Panel"
+                title="Header">
+                <items jcr:primaryType="cq:WidgetCollection">
+                    <logoImage
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="true"
+                        fieldLabel="Logo Image"
+                        name="./logoImage"
+                        xtype="textfield"/>
+                    <logoAlt
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="false"
+                        fieldLabel="Logo Image Alt Copy"
+                        name="./logoAlt"
+                        xtype="textfield"/>
+                    <topLeftUrl
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="false"
+                        fieldLabel="Top Left URL Link"
+                        name="./topLeftUrl"
+                        xtype="textfield"/>
+                    <topLeftUrlCopy
+                        jcr:primaryType="cq:Widget"
+                        allowBlank="false"
+                        fieldLabel="Top Left URL Link Copy"
+                        name="./topLeftUrlCopy"
+                        xtype="textfield"/>
+
+                </items>
+            </header>
+        </items>
+    </items>
+</jcr:root>

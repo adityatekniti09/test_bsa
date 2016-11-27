@@ -1,0 +1,67 @@
+
+
+<div ng-controller="assetShareController" ng-cloak>
+	<div style="">
+		<!--<input type="hidden" ng-model="data.resultsPerPage" ng-init="data.resultsPerPage= ${properties.limit}"/>-->
+		<!--<input type="hidden" ng-model="data.folderPath" ng-init="data.folderPath= ${properties.path}"/>-->
+	</div>
+	<div class="container " style="margin-top: 15px">
+		<div class="row">
+			<div class="col-xs-8 col-md-4 col-sd-4">
+				<div class="form-group has-feedback ui-widget">
+					<input type="text" id="tags" class="form-control"
+						ng-model="data.searchTermText" placeholder="Search"
+						list="searchList" key-bind="{enter:'searchButton()'}" />
+					<datalist id="searchList"></datalist>
+					<span class="glyphicon glyphicon-search form-control-feedback"></span>
+				</div>
+			</div>
+
+			<button ng-click="downloadAll()" class="btn btn-primary">
+				<i class="fa fa-download" aria-hidden="true"></i> Download
+			</button>
+		</div>
+	</div>
+	<div class="container">
+		<button ng-click="previousButton()"
+			ng-disabled="data.isPreviousDisable" class="btn btn-primary">Previous</button>
+		<div class="col-xs-3">{{data.offset+1}} - {{data.offset +
+			data.hitsPerPage}} of {{data.totalMatches}} results</div>
+		<button ng-click="nextButton()" ng-disabled="data.isNextDisable"
+			class="btn btn-primary">Next</button>
+
+	</div>
+	<div class="container">
+		<div class="row" style="padding-top: 20px;">
+			<div class="col-sm-6 col-md-3 gridImg-details"
+				ng-repeat="assetObject in data.assetObjects track by $index"
+				ng-mouseover="hoverIn()" ng-mouseleave="hoverOut()">
+				<div class="spotlights">
+					<div class="thumbnail">
+						<img ng-src="{{assetObject.gridImage}}"
+							alt="{{assetObject.title}}" src="">
+					</div>
+					<div class="caption" style="text-align: center">
+						<h3>{{assetObject.title}}</h3>
+						<select ng-show="hoverEdit" name="singleSelect"
+							ng-model="data.renditions[$index]">
+							<option value="low">Low</option>
+							<option value="medium">Medium</option>
+							<option value="high">High</option>
+							<option value="original" selected="selected">Original</option>
+
+						</select>
+						<p ng-show="hoverEdit">
+							<a ng-hide="data.assetObjects.isDownload ==  true"
+								ng-click="addToDownload(assetObject.downloadPath,data.renditions[$index])"
+								role="button"><span style="text-align: center">Add
+									to Download</span> </a>
+						</p>
+					</div>
+				</div>
+				<div style="height: 100px"></div>
+			</div>
+		</div>
+	</div>
+	<div ng-init="searchOnLoad()"></div>
+</div>
